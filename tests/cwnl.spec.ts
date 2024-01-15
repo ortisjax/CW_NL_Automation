@@ -20,13 +20,12 @@ test('Apply For Courses Page', async({page}) => {
     await expect(applyForCoursesPage.email).toBeVisible();
     await expect(applyForCoursesPage.phone).toBeVisible();
     await expect(applyForCoursesPage.city).toBeVisible();
+    await expect(applyForCoursesPage.Country).toBeVisible();
     await expect(applyForCoursesPage.programCategory).toBeVisible();
 })
 
-test('Talk to an Advisor page', async({page}) => {
-
-
-})
+// test('Talk to an Advisor page', async({page}) => {
+// })
 
 test.afterEach(async({page}) => {
     page.close();

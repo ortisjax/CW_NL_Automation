@@ -10,7 +10,7 @@ export class ApplyForCoursesPage {
     readonly phone: Locator;
     readonly city: Locator;
     readonly programCategory: Locator;
-//    readonly Country: Locator;
+    readonly Country: Locator;
     readonly startYourRequestText: Locator;
 
     constructor(page: Page){
@@ -19,7 +19,7 @@ export class ApplyForCoursesPage {
         this.lastName = this.page.frameLocator('iframe').getByLabel('Last');
         this.email = this.page.frameLocator('iframe').getByLabel('Email \n\n*');
         this.phone = this.page.frameLocator('iframe').getByLabel('Phone \n\n*');
-//        this.Country
+        this.Country = this.page.frameLocator('iframe').getByLabel('Country');
         this.city = this.page.frameLocator('iframe').getByLabel('State-City');
         this.programCategory = this.page.frameLocator('iframe').getByLabel('Choose Program Category \n\n*');
         this.startYourRequestText = this.page.locator('section').filter({ hasText: 'Start uw aanvraag' }).frameLocator('iframe').getByText('Name', { exact: true });
