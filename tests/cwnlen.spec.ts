@@ -13,7 +13,7 @@ test.beforeEach(async({page}) => {
 
 test('Apply For Courses EN', async({page}) => {
     await mainPage.clickOnApplyForCourses();
-    const applyForCoursesPage: ApplyForCoursesPage = new ApplyForCoursesPage(page);
+    const applyForCoursesPage: ApplyForCoursesPage = new ApplyForCoursesPage(page, 'en');
     await expect(applyForCoursesPage.startYourRequestText).toBeVisible();
     await expect(applyForCoursesPage.firstName).toBeVisible();
     await expect(applyForCoursesPage.lastName).toBeVisible();
@@ -25,7 +25,7 @@ test('Apply For Courses EN', async({page}) => {
 })
 
 test('Talk to an Advisor page EN', async({page}) => {
-    await expect(page.url()).toBe('https://clarusway.nl/en/');
+    expect(page.url()).toBe('https://clarusway.nl/en/');
     await mainPage.clickOnTalkToAnAdvisor();
     const talkToAnAdvisorPage = new TalkToAnAdvisorPage(page);
     await expect(talkToAnAdvisorPage.chooseAppointmentText).toBeVisible();

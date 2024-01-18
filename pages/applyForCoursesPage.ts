@@ -1,4 +1,5 @@
 import { Locator, Page } from "@playwright/test";
+import Dictionary from "../dictionary.json"
 
 
 export class ApplyForCoursesPage {
@@ -13,7 +14,7 @@ export class ApplyForCoursesPage {
     readonly Country: Locator;
     readonly startYourRequestText: Locator;
 
-    constructor(page: Page){
+    constructor(page: Page, lang: string){
         this.page = page;
         this.firstName = this.page.frameLocator('iframe').getByLabel('First');
         this.lastName = this.page.frameLocator('iframe').getByLabel('Last');
@@ -22,7 +23,7 @@ export class ApplyForCoursesPage {
         this.Country = this.page.frameLocator('iframe').getByLabel('Country');
         this.city = this.page.frameLocator('iframe').getByLabel('State-City');
         this.programCategory = this.page.frameLocator('iframe').getByLabel('Choose Program Category \n\n*');
-        this.startYourRequestText = this.page.locator('section').filter({ hasText: 'Start uw aanvraag' }).frameLocator('iframe').getByText('Name', { exact: true });
+        this.startYourRequestText = this.page.locator('section').filter({ hasText: `${Dictionary.startYourApplication[lang]}` }).frameLocator('iframe').getByText('Name', { exact: true });
     }
 
     async goto(){

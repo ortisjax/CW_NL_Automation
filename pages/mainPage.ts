@@ -13,13 +13,13 @@ export class MainPage {
         this.page = page;
         this.applyForCoursesButton = this.page.getByRole('link', { name: `${Dictionary.ApplyNow[lang]}` });
         this.talkToAnAdvisorButton = this.page.getByRole('banner').getByRole('link', { name: `${Dictionary.TalkToAnAdvisor[lang]}` });
-        if(lang = 'nl'){
-            this.nederlandsButton = page.getByRole('link', { name: 'Nederlands' });
-            this.nederlandsButton.click();
-        }
     }
 
-    async goto(){
+    async gotoNL(){
+        await this.page.goto('https://www.clarusway.nl');
+    }
+
+    async gotoEN(){
         await this.page.goto('https://www.clarusway.nl/en');
     }
 
